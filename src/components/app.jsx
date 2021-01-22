@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TitleBar from "./TitleBar/titleBar";
+import BookViewer from "./BookViewer/bookViewer";
 
 //Class or Stateful Component
 export default class App extends Component {
@@ -30,19 +31,21 @@ export default class App extends Component {
     let tempBookNumber = this.state.bookNumber;
     tempBookNumber--;
     if (tempBookNumber < 0) {
-        tempBookNumber = this.books.length - 1;
+      tempBookNumber = this.books.length - 1;
     }
 
-      this.setState({
-        bookNumber: tempBookNumber,
-      });
+    this.setState({
+      bookNumber: tempBookNumber,
+    });
   }
 
   render() {
     return (
       <div className="container-fluid">
         <TitleBar />
-        
+        <BookViewer book={this.books[this.state.bookNumber]}
+                    nextBook={() => this.goToNextBook()}
+                    previousBook={() => this.goToPreviousBook()} />
       </div>
     );
   }
