@@ -1,4 +1,8 @@
 import React from "react";
+import './bookViewer.css';
+
+import Book from '../Book/book'
+
 
 export default function bookViewer(props) {
   return (
@@ -7,8 +11,7 @@ export default function bookViewer(props) {
         <button onClick={() => props.previousBook()}>Previous Book</button>
       </div>
       <div className="col-md-4">
-        <h1>{props.book.title}</h1>
-        <h4>{props.book.title}</h4>
+        <Book book={props.book} />
       </div>
       <div className="col-md-4">
         <button onClick={() => props.nextBook()}>Next Book</button>
