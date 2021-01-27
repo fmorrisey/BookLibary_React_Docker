@@ -1,8 +1,7 @@
 import React from "react";
-import './bookViewer.css';
+import "./bookViewer.css";
 
-import Book from '../Book/book'
-
+import Book from "../Book/book";
 
 export default function bookViewer(props) {
   return (

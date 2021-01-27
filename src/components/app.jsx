@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TitleBar from "./TitleBar/titleBar";
 import BookViewer from "./BookViewer/bookViewer";
 import BookCreator from "./BookCreator/bookCreator";
+import Footer from "./Footer/footer";
 
 //Class or Stateful Component
 export default class App extends Component {
@@ -57,6 +58,7 @@ export default class App extends Component {
           previousBook={() => this.goToPreviousBook()}
         />
         <BookCreator addNewBook={this.addNewBook.bind(this)} />
+        <Footer />
       </div>
     );
   }
