@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TitleBar from "./TitleBar/titleBar";
 import BookViewer from "./BookViewer/bookViewer";
+import BookCreator from "./BookCreator/bookCreator";
 
 //Class or Stateful Component
 export default class App extends Component {
@@ -12,8 +13,15 @@ export default class App extends Component {
       { title: "The First and Last Freedom", author: "Jiddu Krishnamurti" },
     ];
     this.state = {
-      bookNumber: 2,
+      bookNumber: 0,
     };
+  }
+
+  addNewBook(book) {
+    this.books.push(book);
+    this.setState({ 
+      bookNumber: this.books.length - 1
+    });
   }
 
   goToNextBook() {
@@ -48,6 +56,7 @@ export default class App extends Component {
           nextBook={() => this.goToNextBook()}
           previousBook={() => this.goToPreviousBook()}
         />
+        <BookCreator addNewBook={this.addNewBook.bind(this)} />
       </div>
     );
   }
